@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Autoload/MoveSpeed.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/BG/noite_ceu.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/BG/noite_nuvens_claras.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/BG/noite_nuvens.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/BG/noite_predios.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/BG/noite_lua.png" type="Texture" id=6]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2( 640, 0 )
+transform = Transform2D( 1, 0, 0, 1, 640, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="NoiteCeu" type="Sprite" parent="."]
+position = Vector2( 0, 360 )
+texture = ExtResource( 2 )
+
+[node name="Moon" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0 )
+motion_offset = Vector2( 640, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+script = ExtResource( 1 )
+move_speed = -0.15
+
+[node name="Sprite" type="Sprite" parent="Moon"]
+texture = ExtResource( 6 )
+
+[node name="Clouds0" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+script = ExtResource( 1 )
+move_speed = -10.0
+
+[node name="Sprite" type="Sprite" parent="Clouds0"]
+texture = ExtResource( 4 )
+
+[node name="City" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 0 )
+motion_offset = Vector2( 640, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+script = ExtResource( 1 )
+move_speed = -4.0
+
+[node name="Sprite" type="Sprite" parent="City"]
+texture = ExtResource( 5 )
+
+[node name="Clouds1" type="ParallaxLayer" parent="."]
+position = Vector2( -11, 0 )
+motion_scale = Vector2( 0.8, 0 )
+motion_offset = Vector2( 640, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+script = ExtResource( 1 )
+move_speed = -24.0
+
+[node name="Sprite" type="Sprite" parent="Clouds1"]
+position = Vector2( 11, 0 )
+texture = ExtResource( 3 )

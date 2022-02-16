@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/tilesets/tiles_iguess.png" type="Texture" id=1]
+[ext_resource path="res://assets/tilesets/bg.png" type="Texture" id=2]
+[ext_resource path="res://src/Actors/PlusGuy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/2.png" type="Texture" id=4]
+[ext_resource path="res://src/Items/minus_item.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Levels/level.gd" type="Script" id=6]
+[ext_resource path="res://src/Items/plus_item.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Actors/MinusGuy.tscn" type="PackedScene" id=8]
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
+
+[sub_resource type="TileSet" id=2]
+resource_local_to_scene = true
+1/name = "tiles_iguess.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 44, 13, 1, 1 )
+1/tile_mode = 1
+1/autotile/bitmask_mode = 0
+1/autotile/bitmask_flags = [  ]
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 32, 32 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "tiles_iguess.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 48, 48 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/navigation = SubResource( 3 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 4 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[node name="LevelTemplate" type="Node2D"]
+position = Vector2( 1, 1 )
+script = ExtResource( 6 )
+players = 4
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 654, 372 )
+scale = Vector2( 1.02488, 1.03167 )
+texture = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 0, 46 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 48, 48 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -589824, 2, 0, -589823, 2, 0, -589813, 2, 0, -589812, 2, 0, -589799, 2, 0, -589798, 2, 0, -524288, 2, 0, -524287, 2, 0, -524277, 2, 0, -524276, 2, 0, -524263, 2, 0, -524262, 2, 0, -458752, 2, 0, -458751, 2, 0, -458741, 2, 0, -458740, 2, 0, -458727, 2, 0, -458726, 2, 0, -393216, 2, 0, -393215, 2, 0, -393205, 2, 0, -393204, 2, 0, -393191, 2, 0, -393190, 2, 0, -327680, 2, 0, -327679, 2, 0, -327669, 2, 0, -327668, 2, 0, -327655, 2, 0, -327654, 2, 0, -262144, 2, 0, -262143, 2, 0, -262133, 2, 0, -262132, 2, 0, -262119, 2, 0, -262118, 2, 0, -196608, 2, 0, -196607, 2, 0, -196597, 2, 0, -196596, 2, 0, -196583, 2, 0, -196582, 2, 0, -131072, 2, 0, -131071, 2, 0, -131061, 2, 0, -131060, 2, 0, -131047, 2, 0, -131046, 2, 0, -65536, 2, 0, -65535, 2, 0, -65525, 2, 0, -65524, 2, 0, -65511, 2, 0, -65510, 2, 0, 0, 2, 0, 1, 2, 0, 11, 2, 0, 12, 2, 0, 25, 2, 0, 26, 2, 0, 65536, 2, 0, 65537, 2, 0, 65547, 2, 0, 65548, 2, 0, 65561, 2, 0, 65562, 2, 0, 131072, 2, 0, 131073, 2, 0, 131083, 2, 0, 131084, 2, 0, 131085, 2, 0, 131086, 2, 0, 131087, 2, 0, 131097, 2, 0, 131098, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196619, 2, 0, 196620, 2, 0, 196621, 2, 0, 196622, 2, 0, 196623, 2, 0, 196633, 2, 0, 196634, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262155, 2, 0, 262156, 2, 0, 262169, 2, 0, 262170, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327691, 2, 0, 327692, 2, 0, 327705, 2, 0, 327706, 2, 0, 393216, 2, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393227, 2, 0, 393228, 2, 0, 393241, 2, 0, 393242, 2, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458763, 2, 0, 458764, 2, 0, 458777, 2, 0, 458778, 2, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524299, 2, 0, 524300, 2, 0, 524313, 2, 0, 524314, 2, 0, 589824, 2, 0, 589825, 2, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589835, 2, 0, 589836, 2, 0, 589849, 2, 0, 589850, 2, 0, 655360, 2, 0, 655361, 2, 0, 655385, 2, 0, 655386, 2, 0, 720896, 2, 0, 720897, 2, 0, 720921, 2, 0, 720922, 2, 0, 786432, 2, 0, 786433, 2, 0, 786457, 2, 0, 786458, 2, 0, 851968, 2, 0, 851969, 2, 0, 851970, 2, 0, 851971, 2, 0, 851972, 2, 0, 851973, 2, 0, 851974, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851978, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0, 851982, 2, 0, 851983, 2, 0, 851984, 2, 0, 851985, 2, 0, 851986, 2, 0, 851987, 2, 0, 851988, 2, 0, 851989, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 851994, 2, 0, 917504, 2, 0, 917505, 2, 0, 917506, 2, 0, 917507, 2, 0, 917508, 2, 0, 917509, 2, 0, 917510, 2, 0, 917511, 2, 0, 917512, 2, 0, 917513, 2, 0, 917514, 2, 0, 917515, 2, 0, 917516, 2, 0, 917517, 2, 0, 917518, 2, 0, 917519, 2, 0, 917520, 2, 0, 917521, 2, 0, 917522, 2, 0, 917523, 2, 0, 917524, 2, 0, 917525, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 917530, 2, 0, 983040, 2, 0, 983041, 2, 0, 983042, 2, 0, 983043, 2, 0, 983044, 2, 0, 983045, 2, 0, 983046, 2, 0, 983047, 2, 0, 983048, 2, 0, 983049, 2, 0, 983050, 2, 0, 983051, 2, 0, 983052, 2, 0, 983053, 2, 0, 983054, 2, 0, 983055, 2, 0, 983056, 2, 0, 983057, 2, 0, 983058, 2, 0, 983059, 2, 0, 983060, 2, 0, 983061, 2, 0, 983062, 2, 0, 983063, 2, 0, 983064, 2, 0, 983065, 2, 0, 983066, 2, 0 )
+
+[node name="2" type="Sprite" parent="."]
+position = Vector2( 41, 43 )
+texture = ExtResource( 4 )
+
+[node name="plus_item" parent="." instance=ExtResource( 7 )]
+position = Vector2( 626, 613 )
+
+[node name="plus_item2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 525, 614 )
+
+[node name="minus2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 660, 129 )
+
+[node name="Player0" parent="." instance=ExtResource( 8 )]
+position = Vector2( 180, 185 )
+collision_mask = 13
+
+[node name="Player1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 695, 670 )
+collision_mask = 13
+
+[node name="Player2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 171, 669 )
+collision_mask = 13
+
+[node name="Player3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1149, 670 )
+collision_mask = 13

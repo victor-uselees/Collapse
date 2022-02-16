@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/BG/noite_ceu.png" type="Texture" id=1]
+
+[node name="SkyBG" type="CanvasLayer"]
+
+[node name="NoiteCeu" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 1 )
